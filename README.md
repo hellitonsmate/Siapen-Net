@@ -63,12 +63,5 @@ Execute:
 
 mono SIAPEN.exe
 
-### Observações
-A função de criptografia de senha é baseada em um algoritmo legado do Delphi.
-
-O menu “Cadastro → Interno” ainda não está implementado.
-
-A janela Sobre abre ao clicar em “Sobre → Informações”.
-
 ### Licença
 Este projeto é open-source. Use livremente, respeitando a atribuição.
