@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk+" version="3.20"/>
+
+  <object class="GtkWindow" id="Frmsobre">
+    <property name="title">Sobre</property>
+    <property name="default-width">597</property>
+    <property name="default-height">598</property>
+    <property name="window-position">center</property>
+    <property name="resizable">False</property>
+
+    <child>
+      <object class="GtkBox" id="Panel1">
+        <property name="orientation">vertical</property>
+        <property name="spacing">10</property>
+        <property name="margin">10</property>
+
+        <!-- Título principal -->
+        <child>
+          <object class="GtkLabel" id="Label7">
+            <property name="label">Sistema Abençoado por JESUS CRISTO e revestido com o poder de Deus.</property>
+            <property name="wrap">True</property>
+            <property name="justify">center</property>
+            <attributes>
+              <attribute name="weight" value="bold"/>
+              <attribute name="scale" value="1.2"/>
+            </attributes>
+          </object>
+        </child>
+
+        <!-- Imagem -->
+        <child>
+          <object class="GtkImage" id="Image1">
+            <property name="pixel-size">600</property>
+          </object>
+        </child>
+
+        <!-- Informações do sistema -->
+        <child>
+          <object class="GtkLabel" id="Label1">
+            <property name="label">Sistema Integrado de Administração Penitenciária</property>
+            <attributes>
+              <attribute name="weight" value="bold"/>
+              <attribute name="scale" value="1.3"/>
+            </attributes>
+          </object>
+        </child>
+
+        <child>
+          <object class="GtkLabel" id="Version">
+            <property name="label">Versão: 2.0</property>
+            <attributes>
+              <attribute name="weight" value="bold"/>
+              <attribute name="scale" value="1.6"/>
+            </attributes>
+          </object>
+        </child>
+
+        <!-- Desenvolvedores -->
+        <child>
+          <object class="GtkLabel" id="Label4">
+            <property name="label">Analistas/Desenvolvedores:</property>
+            <attributes>
+              <attribute name="weight" value="bold"/>
+            </attributes>
+          </object>
+        </child>
+
+        <child>
+          <object class="GtkLabel" id="Label2">
+            <property name="label">Wagner Faria França (67) 8404-8854 / (61) 9219-8327   wagner.franca@mj.gov.br</property>
+            <property name="wrap">True</property>
+          </object>
+        </child>
+
+        <child>
+          <object class="GtkLabel" id="Label3">
+            <property name="label">Alexandre Oliveira de Albuquerque (67) 8401-2103   alexandre.albuquerqu@mj.gov.br</property>
+            <property name="wrap">True</property>
+          </object>
+        </child>
+
+        <child>
+          <object class="GtkLabel" id="Label6">
+            <property name="label">Alterado/Atualizado por:</property>
+          </object>
+        </child>
+
+        <child>
+          <object class="GtkLabel" id="Label5">
+            <property name="label">Diogo Gonçalves Lima
+Agente Penitenciário Federal
+diogo.goncalves@mj.gov.br</property>
+            <property name="wrap">True</property>
+          </object>
+        </child>
+
+        <!-- Botão Sair -->
+        <child>
+          <object class="GtkButton" id="BitBtn1">
+            <property name="label">Sair</property>
+            <signal name="clicked" handler="OnSairClicked"/>
+          </object>
+        </child>
+
+      </object>
+    </child>
+  </object>
+</interface>
+
