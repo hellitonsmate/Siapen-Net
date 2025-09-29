@@ -19,7 +19,7 @@ O sistema possui:
 - Banco de dados Firebird com tabela `FUNCIONARIO` (campos `LOGIN` e `SENHA`).  
 
 > No Windows, instale o **GTK# 3 runtime**: [https://www.mono-project.com/download/stable/](https://www.mono-project.com/download/stable/)  
-> No Linux, instale via gerenciador de pacotes (ex: `sudo apt install gtk-sharp3 mono-complete`).
+> No Linux, instale via gerenciador de pacotes (ex: `sudo apt install gtk-sharp3 mono-complete`)       
 > Modificar o arquivo appsettings.json com suas credenciais.
 
 ---
