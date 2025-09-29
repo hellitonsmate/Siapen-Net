@@ -3,11 +3,13 @@ using Gtk;
 using FirebirdSql.Data.FirebirdClient;
 using Microsoft.Extensions.Configuration;
 
+
 public class LoginWindow : Window
 {
     private Entry entryLogin;
     private Entry entrySenha;
     private Label labelStatus;
+    private string connectionString;
 
 
     public LoginWindow() : base("SIAPEN - Login")
@@ -18,6 +20,9 @@ public class LoginWindow : Window
         BorderWidth = 10;
 
         //VBox vbox = new VBox(false, 8);
+        Box vbox = new Box(Orientation.Vertical, 8);
+        Box hboxButtons = new Box(Orientation.Horizontal, 8);
+        hboxButtons.Homogeneous = true;
 
         // Login
         Label labelLogin = new Label("Login:");
@@ -35,9 +40,7 @@ public class LoginWindow : Window
         // Botões
         //HBox hboxButtons = new HBox(true, 8);
 
-        Box vbox = new Box(Orientation.Vertical, 8);
-        Box hboxButtons = new Box(Orientation.Horizontal, 8);
-        hboxButtons.Homogeneous = true;
+       
 
         Button btnEntrar = new Button("Entrar");
         Button btnSair = new Button("Sair");
