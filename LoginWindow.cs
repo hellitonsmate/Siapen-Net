@@ -8,22 +8,15 @@ public class LoginWindow : Window
     private Entry entrySenha;
     private Label labelStatus;
 
-    private string connectionString =
-        "User=SYSDBA;" +
-        "Password=masterkey;" +
-        "Database=172.23.15.251:Siapen;" +
-        "DataSource=172.23.15.251;" +
-        "Port=3050;" +
-        "Dialect=3;" +
-        "Charset=UTF8;";
 
     public LoginWindow() : base("SIAPEN - Login")
     {
+        LoadConnectionString();
         SetDefaultSize(350, 200);
         SetPosition(WindowPosition.Center);
         BorderWidth = 10;
 
-        VBox vbox = new VBox(false, 8);
+        //VBox vbox = new VBox(false, 8);
 
         // Login
         Label labelLogin = new Label("Login:");
@@ -39,7 +32,12 @@ public class LoginWindow : Window
         vbox.PackStart(entrySenha, false, false, 0);
 
         // Botões
-        HBox hboxButtons = new HBox(true, 8);
+        //HBox hboxButtons = new HBox(true, 8);
+
+        Box vbox = new Box(Orientation.Vertical, 8);
+        Box hboxButtons = new Box(Orientation.Horizontal, 8);
+        hboxButtons.Homogeneous = true;
+
         Button btnEntrar = new Button("Entrar");
         Button btnSair = new Button("Sair");
 
@@ -52,10 +50,18 @@ public class LoginWindow : Window
 
         // Status
         labelStatus = new Label();
+        labelStatus.Name = "statusLabel"; 
         vbox.PackStart(labelStatus, false, false, 0);
 
         Add(vbox);
         ShowAll();
+    }
+    
+    private void SetStatusStyle(string css)
+    {
+        var provider = new CssProvider();
+        provider.LoadFromData(css);
+        StyleContext.AddProviderForScreen(Gdk.Screen.Default, provider, Gtk.StyleProviderPriority.Application);
     }
 
     private void OnLoginClicked(object sender, EventArgs e)
@@ -66,7 +72,7 @@ public class LoginWindow : Window
         if (ValidarLogin(login, senha))
         {
             labelStatus.Text = "✅ Login realizado com sucesso!";
-            labelStatus.ModifyFg(StateType.Normal, new Gdk.Color(0, 150, 0));
+            SetStatusStyle("#statusLabel { color: green; font-weight: bold; }");
 
             // ✨ Fecha janela de login e abre a janela principal
             Hide();              // ou Destroy();
@@ -75,7 +81,7 @@ public class LoginWindow : Window
         else
         {
             labelStatus.Text = "❌ Usuário ou senha inválidos.";
-            labelStatus.ModifyFg(StateType.Normal, new Gdk.Color(200, 0, 0));
+            SetStatusStyle("#statusLabel { color: red; font-weight: bold; }");
         }
     }
 
@@ -105,6 +111,16 @@ public class LoginWindow : Window
         }
     }
 
+    private void LoadConnectionString()
+    {
+        var builder = new ConfigurationBuilder()
+            .SetBasePath(System.IO.Directory.GetCurrentDirectory())
+            .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+
+        IConfigurationRoot configuration = builder.Build();
+        connectionString = configuration.GetConnectionString("DefaultConnection");
+    }
+
     // mesma função Delphi convertida
     public static string Senha(string strValue, ushort chave = 256)
     {
@@ -118,4 +134,3 @@ public class LoginWindow : Window
         return outValue;
     }
 }
-
