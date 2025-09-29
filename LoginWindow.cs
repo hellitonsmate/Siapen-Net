@@ -1,6 +1,7 @@
 using System;
 using Gtk;
 using FirebirdSql.Data.FirebirdClient;
+using Microsoft.Extensions.Configuration;
 
 public class LoginWindow : Window
 {
